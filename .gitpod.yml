@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - before: nvm use 12
+    init: |
+      yarn install
+      yarn redwood db up
+      yarn redwood db seed
+    command: |
+      yarn redwood dev
+ports:
+  - port: 8910
+    onOpen: ignore
+  - port: 8911
+    onOpen: ignore
